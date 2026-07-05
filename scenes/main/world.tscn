@@ -10,19 +10,13 @@ size = Vector2(8, 336)
 size = Vector2(8, 336)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_526id"]
-size = Vector2(256, 8)
+size = Vector2(288, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0aorq"]
-size = Vector2(256, 8)
+size = Vector2(288, 8)
 
 [node name="world" type="Node2D" unique_id=954842841]
 script = ExtResource("1_dtyxf")
-
-[node name="alien_container" type="Node2D" parent="." unique_id=1180921994]
-position = Vector2(16, 16)
-
-[node name="player" parent="." unique_id=1679966278 instance=ExtResource("2_iubku")]
-position = Vector2(48, 264)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1030028204]
 
@@ -31,13 +25,21 @@ position = Vector2(-4, 160)
 shape = SubResource("RectangleShape2D_iubku")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1281367880]
-position = Vector2(260, 160)
+position = Vector2(292, 160)
 shape = SubResource("RectangleShape2D_y2s00")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=301735881]
-position = Vector2(128, -4)
+position = Vector2(144, -4)
 shape = SubResource("RectangleShape2D_526id")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=274399858]
-position = Vector2(128, 324)
+position = Vector2(144, 324)
 shape = SubResource("RectangleShape2D_0aorq")
+
+[node name="player" parent="." unique_id=1679966278 instance=ExtResource("2_iubku")]
+position = Vector2(144, 296)
+
+[node name="alien_container" type="Node2D" parent="." unique_id=1180921994]
+position = Vector2(8, 8)
+
+[node name="projectile_container" type="Node2D" parent="." unique_id=911922889 groups=["projectile_container"]]

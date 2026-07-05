@@ -9,8 +9,8 @@ var player_lives: int = max_player_lives
 var score: int = 0
 var max_score: int = 0
 
-var horizontal_alien_amount: int = 8
-var vertical_alien_amount: int = 3
+var horizontal_alien_amount: int = 9
+var vertical_alien_amount: int = 4
 
 func _ready() -> void:
 	add_child(canvas_layer)

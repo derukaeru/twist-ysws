@@ -6,3 +6,5 @@ signal reset_game
 
 signal reset_player
 signal reset_aliens
+
+signal change_direction

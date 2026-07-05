@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://chn5qpgw5vfi" path="res://assets/sprites/alien_1.png" id="2_h6np5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2qhl"]
+size = Vector2(16, 16)
 
 [node name="alien" type="CharacterBody2D" unique_id=346738073]
-motion_mode = 1
 script = ExtResource("1_sflu0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1069951]
