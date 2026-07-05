@@ -1,0 +1,1 @@
+class_name Bullet extends StaticBody2D

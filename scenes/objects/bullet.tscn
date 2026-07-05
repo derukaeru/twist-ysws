@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://n0gi0j1bvfy1"]
+
+[ext_resource type="Script" uid="uid://dp388cd8gcugj" path="res://scenes/objects/bullet.gd" id="1_ds4j2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sciqk"]
+
+[node name="bullet" type="StaticBody2D" unique_id=816487908]
+script = ExtResource("1_ds4j2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=183857954]
+shape = SubResource("RectangleShape2D_sciqk")

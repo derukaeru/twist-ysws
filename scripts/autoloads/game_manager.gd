@@ -1,8 +1,16 @@
 extends Node
 
 @onready var pause_screen = load(Registry.UID["pause_screen"]).instantiate()
-
 var canvas_layer = CanvasLayer.new()
+
+var max_player_lives: int = 2
+var player_lives: int = max_player_lives
+
+var score: int = 0
+var max_score: int = 0
+
+var horizontal_alien_amount: int = 8
+var vertical_alien_amount: int = 3
 
 func _ready() -> void:
 	add_child(canvas_layer)
@@ -15,10 +23,13 @@ func _ready() -> void:
 func _process(_d) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if get_tree().paused:
-			get_tree().paused = false
-			pause_screen.hide()
-			Util.mouse_captured()
+			Util.pause()
 		else:
-			get_tree().paused = true
-			pause_screen.show()
-			Util.mouse_visible()
+			Util.unpause()
+
+func start() -> void:
+	player_lives = 2
+	score = 0
+
+func reset() -> void:
+	pass

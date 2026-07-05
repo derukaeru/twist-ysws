@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="twist-ysws"
+run/main_scene="uid://bsbyp1yds8yl8"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,10 +21,25 @@ GameManager="*uid://d3t2qo2fhaj0e"
 Registry="*uid://bc5qt0p3hime3"
 SceneChanger="*uid://mftmsar637v6"
 Util="*uid://cl4mktmg7kcgy"
+EventBus="*uid://bn6xpwao041fv"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
+
+[display]
+
+window/size/viewport_width=256
+window/size/viewport_height=320
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[global_group]
+
+player=""
 
 [physics]
 
@@ -31,6 +47,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
