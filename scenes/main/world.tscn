@@ -22,14 +22,16 @@ size = Vector2(3, 353)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r2wy"]
 size = Vector2(3, 352)
 
+[sub_resource type="LabelSettings" id="LabelSettings_y2s00"]
+
 [node name="world" type="Node2D" unique_id=954842841]
 script = ExtResource("1_dtyxf")
 
-[node name="background" type="Sprite2D" parent="." unique_id=865017960]
+[node name="background" type="Sprite2D" parent="." unique_id=865017960 groups=["alien"]]
 texture = ExtResource("2_y2s00")
 centered = false
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1030028204]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1030028204 groups=["world_collision"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2137331521]
 position = Vector2(-4, 176)
@@ -68,6 +70,33 @@ position = Vector2(286.5, 176)
 shape = SubResource("RectangleShape2D_1r2wy")
 
 [node name="alien_shoot" type="Timer" parent="." unique_id=1029850480]
+wait_time = 0.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=812857134]
+
+[node name="score" type="Label" parent="CanvasLayer" unique_id=794289713]
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 67.0
+offset_bottom = 25.0
+text = "score: 0"
+label_settings = SubResource("LabelSettings_y2s00")
+
+[node name="start" type="Button" parent="CanvasLayer" unique_id=1333756484]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -112.0
+offset_right = 48.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "start"
 
 [connection signal="body_entered" from="change_direction_left" to="." method="change_dir_left"]
 [connection signal="body_entered" from="change_direction_right" to="." method="change_dir_right"]
+[connection signal="timeout" from="alien_shoot" to="." method="random_enemy_shoot"]
+[connection signal="pressed" from="CanvasLayer/start" to="." method="start"]

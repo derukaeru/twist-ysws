@@ -12,7 +12,7 @@ var max_score: int = 0
 var horizontal_alien_amount: int = 9
 var vertical_alien_amount: int = 4
 
-var alien_shoot_delay: int = 0.6
+var alien_shoot_delay: float = 0.6
 
 func _ready() -> void:
 	add_child(canvas_layer)
@@ -30,9 +30,24 @@ func _process(_d) -> void:
 			Util.unpause()
 
 func start() -> void:
-	player_lives = 2
-	score = 0
+	EventBus.reset_aliens.emit()
+	EventBus.reset_player.emit()
+	
+	EventBus.start_aliens.emit()
+	EventBus.start.emit()
 
 func reset() -> void:
+	if player_lives <= 0:
+		restart()
+		return
+	
 	player_lives -= 1
 	score = 0
+	
+	start()
+
+func restart() -> void:
+	player_lives = 2
+	score = 0
+	
+	EventBus.restart.emit()

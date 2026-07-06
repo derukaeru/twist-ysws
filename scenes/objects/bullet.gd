@@ -15,8 +15,9 @@ func _physics_process(_delta) -> void:
 func hit(body: Node) -> void:
 	if parent == PARENTS.player:
 		if body is Alien:
+			GameManager.score += 20 + randi_range(0, 20)
 			body.queue_free()
-			GameManager.score += 100 + (int(global_position.y) * 10)
+			EventBus.update_score.emit()
 			
 			queue_free()
 	elif parent == PARENTS.alien:
@@ -24,3 +25,9 @@ func hit(body: Node) -> void:
 			body.die()
 			queue_free()
 	
+	if body is Bullet:
+		queue_free()
+		body.queue_free()
+	
+	if body.is_in_group("world_collision"):
+		queue_free()

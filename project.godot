@@ -42,6 +42,13 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 player=""
 projectile_container=""
 bullet=""
+player_bullet=""
+alien=""
+world_collision=""
+
+[gui]
+
+theme/custom_font="uid://dhlvoote4g4mn"
 
 [input]
 

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2qhl"]
 size = Vector2(16, 16)
 
-[node name="alien" type="CharacterBody2D" unique_id=346738073]
+[node name="alien" type="CharacterBody2D" unique_id=346738073 groups=["alien"]]
 script = ExtResource("1_sflu0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1069951]
