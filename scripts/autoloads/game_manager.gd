@@ -12,6 +12,8 @@ var max_score: int = 0
 var horizontal_alien_amount: int = 9
 var vertical_alien_amount: int = 4
 
+var alien_shoot_delay: int = 0.6
+
 func _ready() -> void:
 	add_child(canvas_layer)
 	canvas_layer.layer = 5
@@ -32,4 +34,5 @@ func start() -> void:
 	score = 0
 
 func reset() -> void:
-	pass
+	player_lives -= 1
+	score = 0

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sciqk"]
 size = Vector2(2, 6)
 
-[node name="bullet" type="Area2D" unique_id=1111755039]
+[node name="bullet" type="Area2D" unique_id=1111755039 groups=["bullet"]]
 script = ExtResource("1_ds4j2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=314810813]

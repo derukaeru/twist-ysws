@@ -30,7 +30,7 @@ gdscript/warnings/unused_signal=0
 [display]
 
 window/size/viewport_width=288
-window/size/viewport_height=320
+window/size/viewport_height=352
 window/stretch/mode="viewport"
 
 [editor_plugins]
@@ -41,6 +41,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 player=""
 projectile_container=""
+bullet=""
 
 [input]
 

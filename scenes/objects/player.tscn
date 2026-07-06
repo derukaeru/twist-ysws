@@ -37,10 +37,14 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_54rde"]
+resource_name = "die"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_54rde"]
 _data = {
 &"RESET": SubResource("Animation_2147m"),
-&"appear": SubResource("Animation_h5uus")
+&"appear": SubResource("Animation_h5uus"),
+&"die": SubResource("Animation_54rde")
 }
 
 [node name="player" type="CharacterBody2D" unique_id=1679966278 groups=["player"]]

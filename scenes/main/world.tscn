@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bq1coa34b5h8x" path="res://scenes/main/world.gd" id="1_dtyxf"]
 [ext_resource type="PackedScene" uid="uid://b666j0joga63g" path="res://scenes/objects/player.tscn" id="2_iubku"]
+[ext_resource type="Texture2D" uid="uid://jv3yoryofnn0" path="res://assets/sprites/background.png" id="2_y2s00"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iubku"]
-size = Vector2(8, 336)
+size = Vector2(8, 368)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2s00"]
-size = Vector2(8, 336)
+size = Vector2(8, 368)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_526id"]
 size = Vector2(288, 8)
@@ -15,17 +16,27 @@ size = Vector2(288, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0aorq"]
 size = Vector2(288, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yshnf"]
+size = Vector2(3, 353)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1r2wy"]
+size = Vector2(3, 352)
+
 [node name="world" type="Node2D" unique_id=954842841]
 script = ExtResource("1_dtyxf")
+
+[node name="background" type="Sprite2D" parent="." unique_id=865017960]
+texture = ExtResource("2_y2s00")
+centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1030028204]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2137331521]
-position = Vector2(-4, 160)
+position = Vector2(-4, 176)
 shape = SubResource("RectangleShape2D_iubku")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1281367880]
-position = Vector2(292, 160)
+position = Vector2(292, 176)
 shape = SubResource("RectangleShape2D_y2s00")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=301735881]
@@ -33,7 +44,7 @@ position = Vector2(144, -4)
 shape = SubResource("RectangleShape2D_526id")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=274399858]
-position = Vector2(144, 324)
+position = Vector2(144, 356)
 shape = SubResource("RectangleShape2D_0aorq")
 
 [node name="player" parent="." unique_id=1679966278 instance=ExtResource("2_iubku")]
@@ -43,3 +54,20 @@ position = Vector2(144, 296)
 position = Vector2(8, 8)
 
 [node name="projectile_container" type="Node2D" parent="." unique_id=911922889 groups=["projectile_container"]]
+
+[node name="change_direction_left" type="Area2D" parent="." unique_id=1051849572]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="change_direction_left" unique_id=1038320970]
+position = Vector2(1.5, 176.5)
+shape = SubResource("RectangleShape2D_yshnf")
+
+[node name="change_direction_right" type="Area2D" parent="." unique_id=1415805063]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="change_direction_right" unique_id=1612714610]
+position = Vector2(286.5, 176)
+shape = SubResource("RectangleShape2D_1r2wy")
+
+[node name="alien_shoot" type="Timer" parent="." unique_id=1029850480]
+
+[connection signal="body_entered" from="change_direction_left" to="." method="change_dir_left"]
+[connection signal="body_entered" from="change_direction_right" to="." method="change_dir_right"]
